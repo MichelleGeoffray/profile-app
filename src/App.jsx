@@ -1,8 +1,9 @@
-import './App.css'
+
 import About from './components/About';
 import Navbar from './components/Navbar';
 import Card1 from './components/Card1';
 import Card2 from './components/Card2';
+import './App.css';
 
 function App() {
   return (

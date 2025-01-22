@@ -1,0 +1,28 @@
+.navbar {
+    background-color: var(--secondary-background-color);
+    text-align: left;
+    padding-top: 0.6rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 3rem;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+    padding-left: 1rem;
+}
+
+.navbar .listItem1 {
+    padding-left: 1rem;
+}
+
+.navbar a {
+    color: white;
+    font-weight: lighter;
+    font-size: 0.85rem;
+}
