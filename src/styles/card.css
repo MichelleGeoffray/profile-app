@@ -6,7 +6,7 @@
     width: 200px;
     box-shadow: var(--box-shadow);
     height: 100%;
-    margin: 0 1rem;
+    margin: 0.75rem;
 }
 
 .profile-card__img {
