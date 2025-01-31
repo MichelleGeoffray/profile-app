@@ -3,9 +3,13 @@ body {
     /* color scheme */
     --primary-background-color: #f7f7f7;
     --secondary-background-color: #646cff;
+    --third-background-color: #ffffff;
+    --dark-background-color: #191a1a;
     --text-color: #191a1a;
-    --button-background-color: #ffffff;
-    --button-hover-background-color: #ffffff;
+    --dark-text-color: #ffffff;
+    --button-background-color: #1a1a1a;
+    --button-text-color: #ffffff;
+    --button-hover-background-color: var(--primary-background-color);
     --button-hover-text-color: #191a1a;
     --link-color: #646cff;
     --link-hover-color: var(--text-color);
