@@ -24,4 +24,6 @@ body {
     --border-color: #e0e0e0;
     /* shadow */
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
 }
