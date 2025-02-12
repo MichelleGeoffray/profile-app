@@ -8,19 +8,31 @@ import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
 import { useState } from "react";
 import ProfileForm from "./components/ProfileForm";
+import { useEffect } from "react";
+import { use } from "react";
 
 
 const App = () => {
-  const profiles = [
+  /*const profiles = [
     { img: image_man, name: 'John Doe', title: 'Software Engineer', email: 'john@john.com' },
     { img: image_woman, name: 'Lily Smith', title: 'UX Designer', email: 'lily@blah.com' },
     { img: image_man, name: 'Rob Johnson', title: 'Web Developer', email: 'rob@gmail.com' },
     { img: image_woman, name: 'Ava Smith', title: 'Web Developer', email: 'a@a.com' },
     { img: image_man, name: 'Tom Smith', title: 'Software Engineer', email: 't@a.com' },
     { img: image_woman, name: 'Eva Smith', title: 'Graphic Designer', email: 'eva@blah.com' },
-  ];
+  ];*/
 
   //Variable to store the animation state
+  const [profiles, setProfiles] = useState([]);
+  useEffect(() => {
+    fetch("https://web.ics.purdue.edu/~zong6/profile-app/fetch-data.php")
+      .then((res) => res.json())
+      .then((data) => {
+        setProfiles(data);
+        console.log(data)
+      })
+  }, []);
+
   const [animation, setAnimation] = useState(false);
   //function to update the animation state
   const handleAnimation = () => {
@@ -103,7 +115,13 @@ const App = () => {
             <button onClick={handleClear} style={buttonStyle}>Reset</button>
           </div>
           <div className="profile-cards">
-            {filterProfiles.map((profile) => (<Card key={profile.email} {...profile} animate={animation} updateAnimate={handleAnimation}/>
+            {filterProfiles.map((profile) => (
+              <Card 
+                key={profile.id} 
+                {...profile} 
+                animate={animation} 
+                updateAnimate={handleAnimation}
+              />
             ))}
           </div>
         </Wrapper>
