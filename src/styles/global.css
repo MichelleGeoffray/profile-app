@@ -259,3 +259,19 @@ select, input {
     font-size: 1rem;
     color: white;
 }
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    button:disabled {
+      cursor: not-allowed;
+      background-color: var(--button-hover-background-color);
+      color: var(--button-hover-text-color);
+    }
+    button{
+      margin: 0.5rem;
+    }
+  }

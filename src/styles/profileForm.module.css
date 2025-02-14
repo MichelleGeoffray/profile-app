@@ -20,6 +20,7 @@
     &:disabled{
       background-color: var(--button-hover-background-color);
       color: var(--button-hover-text-color);
+      cursor: not-allowed;
     }
   }
   input[type="text"],
