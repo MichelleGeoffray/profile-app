@@ -3,19 +3,12 @@
 import AboutPage from "./pages/AboutPage";
 import Navbar from "./components/Navbar";
 import "./App.css";
-//import image_man from "./assets/headshot-man.png";
-//import image_woman from "./assets/headshot-woman.png";
-//import Card from "./components/Card";
-//import Wrapper from "./components/Wrapper";
-//import { useState } from "react";
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faXmark, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-//import ProfileForm from "./components/ProfileForm";
-//import { useEffect } from "react";
-//import { use } from "react";
 import AddProfilePage from "./pages/AddProfilePage";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
+import ProfileDetailPage from "./pages/ProfileDetailPage";
+import ProfileEditPage from "./pages/ProfileEditPage";
+import ProfileIndexPage from "./pages/ProfileIndexPage";
 import { useState, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
@@ -37,6 +30,10 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/add-profile" element={<AddProfilePage />} />
+          <Route path="profile/:id" element={<ProfileIndexPage />}>
+            <Route index element={<ProfileDetailPage />} />
+            <Route path="edit" element={<ProfileEditPage />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
