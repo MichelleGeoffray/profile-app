@@ -1,7 +1,6 @@
-
+import "./App.css";
 import AboutPage from "./pages/AboutPage";
 import Navbar from "./components/Navbar";
-import "./App.css";
 import AddProfilePage from "./pages/AddProfilePage";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
@@ -12,14 +11,14 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage"; 
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { useMode } from "./contexts/ModeContext"; 
-import { useContext } from "react";
+import { lazy, Suspense } from "react";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
 
   const { mode } = useMode();
-
+  const LazyComponent = lazy(() => import("./pages/ProfileDetailPage"));
   return (
     <AuthProvider>
       <HashRouter>
@@ -36,7 +35,7 @@ const App = () => {
               </ProtectedRoute>
               } />
             <Route path="/profile/:id" element={<ProfileIndexPage />}>
-              <Route index element={<ProfileDetailPage />} />
+              <Route index element={<Suspense fallback = {<div>Loading...</div>}><LazyComponent /></Suspense>} />
               <Route path="edit" element={<ProtectedRoute><ProfileEditPage /></ProtectedRoute>} />
             </Route>
             <Route path="/login" element={<LoginPage />} />

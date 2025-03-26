@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo, useRef } from "react";
 import style from "../styles/ProfileForm.module.css";
 import { useNavigate } from "react-router-dom";
 
 const ProfileForm = ({ isEdit = false, currentProfile = {} }) => {
+
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
@@ -113,7 +114,7 @@ const ProfileForm = ({ isEdit = false, currentProfile = {} }) => {
         value={data.bio}
         onChange={handleChange}
       ></textarea>
-      <p>{data.bio.length}/200</p>
+      <p className={style["profile-text"]}>{data.bio.length}/200</p>
       <label htmlFor="image">Choose a profile picture:</label>
       <input
         type="file"
@@ -132,7 +133,7 @@ const ProfileForm = ({ isEdit = false, currentProfile = {} }) => {
           data.email.trim() === "" ||
           data.title.trim() === "" ||
           data.bio.trim() === "" ||
-          data.image === null
+          (!isEdit && !data.image)
         }
       >
         Submit
